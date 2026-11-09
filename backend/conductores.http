@@ -1,0 +1,63 @@
+@url=http://localhost:3000
+
+### Login para obtener token
+# @name login
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "jimy@transporte.com",
+  "password": "password123"
+}
+
+###
+@token = {{login.response.body.token}}
+
+### Listado de conductores
+GET {{url}}/conductores
+Authorization: Bearer {{token}}
+
+### Listado de conductores filtrado por apellido
+GET {{url}}/conductores?apellido=Gomez
+Authorization: Bearer {{token}}
+
+### Detalle de un conductor
+GET {{url}}/conductores/1
+Authorization: Bearer {{token}}
+
+### Historial de viajes y kilómetros totales de un conductor
+GET {{url}}/conductores/1/viajes
+Authorization: Bearer {{token}}
+
+### Crear conductor
+POST {{url}}/conductores
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido": "Gomez",
+  "numero_documento": "34567890",
+  "numero_licencia": "D2-34567890",
+  "fecha_alta_licencia": "2024-03-15",
+  "fecha_vencimiento_licencia": "2029-03-15"
+}
+
+### Modificar conductor
+PUT {{url}}/conductores/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Carlos Alberto",
+  "apellido": "Gomez",
+  "numero_documento": "34567890",
+  "numero_licencia": "D2-34567890",
+  "fecha_alta_licencia": "2024-03-15",
+  "fecha_vencimiento_licencia": "2030-03-15"
+}
+
+### Eliminar conductor
+DELETE {{url}}/conductores/1
+Authorization: Bearer {{token}}
+

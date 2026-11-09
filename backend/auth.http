@@ -1,0 +1,36 @@
+@url=http://localhost:3000
+
+### Registro de usuario
+POST {{url}}/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Jimy Mercado",
+  "email": "jimy@transporte.com",
+  "password": "password123"
+}
+
+### Login de usuario
+# @name login
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "jimy@transporte.com",
+  "password": "password123"
+}
+
+###
+@token = {{login.response.body.token}}
+
+### Prueba de ruta protegida con token válido
+GET {{url}}/usuarios
+Authorization: Bearer {{token}}
+
+### Prueba sin token (debe responder 401)
+GET {{url}}/vehiculos
+
+### Prueba con token inválido (debe responder 403)
+GET {{url}}/vehiculos
+Authorization: Bearer token_invalido_123
+

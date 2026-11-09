@@ -1,0 +1,27 @@
+@url=http://localhost:3000
+
+### Login para obtener token
+# @name login
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "jimy@transporte.com",
+  "password": "password123"
+}
+
+###
+@token = {{login.response.body.token}}
+
+### Consultar listado de usuarios
+GET {{url}}/usuarios
+Authorization: Bearer {{token}}
+
+### Consultar usuarios con filtro por nombre
+GET {{url}}/usuarios?nombre=Jimy
+Authorization: Bearer {{token}}
+
+### Consultar detalle de usuario por ID
+GET {{url}}/usuarios/1
+Authorization: Bearer {{token}}
+

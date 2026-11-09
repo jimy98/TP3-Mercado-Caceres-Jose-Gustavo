@@ -1,0 +1,71 @@
+@url=http://localhost:3000
+
+### Login para obtener token
+# @name login
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "jimy@transporte.com",
+  "password": "password123"
+}
+
+###
+@token = {{login.response.body.token}}
+
+### Listado de todos los viajes
+GET {{url}}/viajes
+Authorization: Bearer {{token}}
+
+### Historial de viajes filtrado por vehículo
+GET {{url}}/viajes?vehiculo_id=1
+Authorization: Bearer {{token}}
+
+### Historial de viajes filtrado por conductor
+GET {{url}}/viajes?conductor_id=1
+Authorization: Bearer {{token}}
+
+### Historial de viajes filtrado por vehículo y conductor
+GET {{url}}/viajes?vehiculo_id=1&conductor_id=1
+Authorization: Bearer {{token}}
+
+### Detalle de un viaje
+GET {{url}}/viajes/1
+Authorization: Bearer {{token}}
+
+### Registrar nuevo viaje
+POST {{url}}/viajes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 1,
+  "conductor_id": 1,
+  "fecha_salida": "2026-11-05T08:00:00",
+  "fecha_llegada": "2026-11-05T14:30:00",
+  "origen": "La Rioja",
+  "destino": "Córdoba",
+  "kilometros": 430.5,
+  "observaciones": "Carga completa entregada sin novedades"
+}
+
+### Modificar viaje
+PUT {{url}}/viajes/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 1,
+  "conductor_id": 1,
+  "fecha_salida": "2026-11-05T08:00:00",
+  "fecha_llegada": "2026-11-05T15:00:00",
+  "origen": "La Rioja",
+  "destino": "Córdoba",
+  "kilometros": 445,
+  "observaciones": "Desvío por ruta alternativa"
+}
+
+### Eliminar viaje
+DELETE {{url}}/viajes/1
+Authorization: Bearer {{token}}
+
