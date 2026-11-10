@@ -1,0 +1,348 @@
+/* Estilos generales - CSS puro sin librerías */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #e6eaef;
+  color: #1f2937;
+  line-height: 1.45;
+}
+
+main {
+  width: 92%;
+  max-width: 1120px;
+  margin: 24px auto;
+  border: 2px solid #64748b;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 22px 26px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #0f172a;
+}
+
+h1 {
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+h3 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+p {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* Barra de navegación */
+nav {
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav li.active {
+  background-color: #475569;
+  color: #ffffff;
+}
+
+nav li.active a {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.nav-derecha {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.usuario-activo {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* Formularios y controles */
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  color: #334155;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: #ffffff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #475569;
+  border-color: #475569;
+}
+
+.formulario-contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0 16px;
+}
+
+.campo {
+  margin-bottom: 6px;
+}
+
+/* Botones */
+button {
+  padding: 7px 14px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e2e8f0;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primario {
+  background-color: #334155;
+  border-color: #334155;
+  color: #ffffff;
+}
+
+.btn-primario:hover {
+  background-color: #1e293b;
+}
+
+.btn-peligro {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.btn-peligro:hover {
+  background-color: #fecaca;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.acciones-tabla {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.barra-superior {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 10px;
+}
+
+/* Filtros */
+.filtros-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.filtros-box h3 {
+  margin-top: 0;
+}
+
+.filtros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+/* Tablas */
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+th {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Tarjetas y resúmenes de kilómetros */
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.tarjeta {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+}
+
+.resumen-km {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 16px;
+  background-color: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  text-align: center;
+}
+
+.resumen-km strong {
+  display: block;
+  font-size: 1.35rem;
+  color: #1e3a8a;
+}
+
+.detalle-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+
+/* Mensajes de validación y estado */
+.mensaje-error {
+  color: #b91c1c;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-size: 0.92rem;
+}
+
+.error-campo {
+  color: #dc2626;
+  font-size: 0.82rem;
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+.mensaje-exito {
+  color: #166534;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-size: 0.92rem;
+}
+
+.texto-vacio {
+  text-align: center;
+  color: #64748b;
+  padding: 18px 0;
+}
+
